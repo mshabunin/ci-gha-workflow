@@ -58,7 +58,7 @@ jobs:
       run: |
         mkdir ${{ github.workspace }}\build && cd ${{ github.workspace }}\build
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-        cmake -G "Visual Studio 16 2019" -A x64 -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=8.1 ${{ env.EXTRA_CMAKE_OPTIONS }} ${{ github.workspace }}\opencv
+        cmake -G "Visual Studio 16 2019" -A x64 -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0 ${{ env.EXTRA_CMAKE_OPTIONS }} ${{ github.workspace }}\opencv
     - name: Build OpenCV
       timeout-minutes: 60
       id: build-opencv
