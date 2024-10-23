@@ -56,6 +56,12 @@ jobs:
         timeout-minutes: 120
         run: |
           cd ${{ github.workspace }} && python3 opencv/platforms/ios/build_framework.py ios
+
+      - name: Debug
+        timeout-minutes: 1
+        run: find -name 'CMake*.log' -exec echo \; -exec echo "====== {} ======" \; -exec cat -n {} \;
+        working-directory: ${{ github.workspace }}/ios
+
       - name: Create Artifact
         timeout-minutes: 10
         run: cd ${{ github.workspace }}/ios && zip -r -9 -y opencv-5.x-ios-framework.zip opencv2.framework
